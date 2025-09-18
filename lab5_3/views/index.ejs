@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+
+<h1>Chào mừng đến với hệ thống quản lý</h1>
+<p>Bạn có thể tìm kiếm sản phẩm hoặc chọn theo nhà cung cấp.</p>
+
+<form method="get" action="/products">
+  <input type="text" name="q" placeholder="Tìm sản phẩm theo tên">
+  <button type="submit">Tìm kiếm</button>
+</form>
+
+<%- include('partials/footer') %>

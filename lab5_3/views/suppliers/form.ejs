@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/style.css">
+<h2 class="text-center"><%= supplier._id ? "Chỉnh sửa nhà cung cấp" : "Thêm nhà cung cấp" %></h2>
+<form method="post" action="<%= supplier._id ? '/suppliers/' + supplier._id + '?_method=PUT' : '/suppliers' %>">
+  <label>Tên:</label>
+  <input type="text" name="name" value="<%= supplier.name || '' %>" required><br>
+
+  <label>Địa chỉ:</label>
+  <input type="text" name="address" value="<%= supplier.address || '' %>"><br>
+
+  <label>Số điện thoại:</label>
+  <input type="text" name="phone" value="<%= supplier.phone || '' %>"><br>
+
+  <button type="submit">Lưu</button>
+</form>
+<div class="text-center">
+  <a href="/products">⬅ Quay lại</a>
+</div>
+

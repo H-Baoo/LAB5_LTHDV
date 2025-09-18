@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/style.css">
+<h2 class="text-center"><%= product._id ? "Chỉnh sửa sản phẩm" : "Thêm sản phẩm" %></h2>
+<form method="post" action="<%= product._id ? '/products/' + product._id + '?_method=PUT' : '/products' %>">
+  <label>Tên:</label>
+  <input type="text" name="name" value="<%= product.name || '' %>" required><br>
+
+  <label>Giá:</label>
+  <input type="number" name="price" value="<%= product.price || 0 %>" required><br>
+
+  <label>Số lượng:</label>
+  <input type="number" name="quantity" value="<%= product.quantity || 0 %>" required><br>
+
+  <label>Nhà cung cấp:</label>
+  <select name="supplier" required>
+    <% suppliers.forEach(s => { %>
+      <option value="<%= s._id %>" <%= product.supplier == s._id ? 'selected' : '' %>><%= s.name %></option>
+    <% }) %>
+  </select><br>
+  <button type="submit">Lưu</button>
+</form>
+<div class="text-center">
+  <a href="/products">⬅ Quay lại</a>
+</div>

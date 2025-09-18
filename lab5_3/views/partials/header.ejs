@@ -1,0 +1,16 @@
+ <link rel="stylesheet" href="/css/style.css">
+<nav>
+  <a href="/">Trang chủ</a>
+  <a href="/products">Sản phẩm</a>
+  <a href="/suppliers">Nhà cung cấp</a>
+
+  <% if (!currentUser) { %>
+    <a href="/auth/login">Đăng nhập</a>
+    <a href="/auth/register">Đăng ký</a>
+  <% } else { %>
+    <form action="/auth/logout" method="post" style="display:inline;">
+      <button type="submit">Đăng xuất</button>
+    </form>
+  <% } %>
+</nav>
+<hr>

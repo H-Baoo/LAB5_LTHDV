@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/style.css">
+<h2 class="text-center">Danh sách sản phẩm</h2> 
+<form method="get" action="/products">
+  <input type="text" name="q" placeholder="Tìm theo tên" value="<%= q || '' %>">
+  <select name="supplier">
+    <option value="">-- Nhà cung cấp --</option>
+    <% suppliers.forEach(s => { %>
+      <option value="<%= s._id %>" <%= supplier == s._id ? 'selected' : '' %>><%= s.name %></option>
+    <% }) %>
+  </select>
+  <button type="submit">Tìm</button>
+</form>
+
+<a href="/products/new">➕ Thêm sản phẩm</a>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Nhà cung cấp</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(p => { %>
+      <tr>
+        <td><%= p.name %></td>
+        <td><%= p.price %></td>
+        <td><%= p.quantity %></td>
+        <td><%= p.supplier ? p.supplier.name : 'N/A' %></td>
+        <td>
+          <a href="/products/<%= p._id %>/edit">✏️ Sửa</a>
+          <form method="post" action="/products/<%= p._id %>?_method=DELETE" style="display:inline;">
+            <button type="submit" class="delete-btn">🗑️ Xóa</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
