@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+
+<h2>Edit Supplier</h2>
+<form method="POST" action="/suppliers/<%= supplier._id %>">
+  <input type="text" name="name" value="<%= supplier.name %>">
+  <input type="text" name="address" value="<%= supplier.address %>">
+  <input type="text" name="phone" value="<%= supplier.phone %>">
+  <button type="submit">Update</button>
+</form>
+
+<%- include("../partials/footer") %>

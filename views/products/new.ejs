@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+
+<h2>Add Product</h2>
+<form method="POST" action="/products">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="number" name="price" placeholder="Price">
+  <input type="number" name="quantity" placeholder="Quantity">
+  <select name="supplierId">
+    <% suppliers.forEach(function(s){ %>
+      <option value="<%= s._id %>"><%= s.name %></option>
+    <% }); %>
+  </select>
+  <button type="submit">Save</button>
+</form>
+
+<%- include("../partials/footer") %>
